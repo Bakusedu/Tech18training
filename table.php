@@ -1,25 +1,25 @@
 <?php
 include 'init.php';
-$sql = "SELECT * FROM users";
+$sql = "SELECT * FROM storedata";
 $results = $link->query($sql);
 ?>
 <html>
   <head>
     <title>Retrieving From Database</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+     .headercol {
+       background-color:lightgrey;
+     }
+    </style>
   </head>
   <body>
     <br>
-
-    <div class="container">
-      <h4>The table below shows an example of Displaying database data inside a table</h4>
-    <table class="table">
-      <thead class="thead-dark">
+    <table>
+      <thead class="headercol">
         <tr>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Username</th>
-            <th scope="col">Email</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Age</th>
         </tr>
       </thead>
       <tbody>
@@ -27,14 +27,12 @@ $results = $link->query($sql);
         while($userInfo = mysqli_fetch_assoc($results)):
         ?>
         <tr>
-          <td><?php echo $userInfo['first_name'] ;?></td>
-          <td><?php echo $userInfo['last_name'] ;?></td>
-          <td><?php echo $userInfo['username'] ;?></td>
-          <td><?php echo $userInfo['email'] ;?></td>
+          <td><?php echo $userInfo['First Name'] ;?></td>
+          <td><?php echo $userInfo['Last Name'] ;?></td>
+          <td><?php echo $userInfo['Age'] ;?></td>
         </tr>
       <?php endwhile ;?>
       </tbody>
     </table>
-  </div>
   </body>
 </html>
